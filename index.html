@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Train Assignment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+</head>
+
+<body>
+
+    <div class="container mt-2">
+
+        <div class="jumbotron bg-primary text-white">
+            <h1>Train Times</h1>
+        </div>
+
+        <!-- Train Information Display -->
+        <table class="table" id="infoTable">
+            <thead class="#">
+                <tr>
+                    <th scope="col" id="trainName">Train Name</th>
+                    <th scope="col" id="destination">Destination</th>
+                    <th scope="col" id="frequency">Frequency (min)</th>
+                    <th scope="col" id="nextArrival">Next Arrival</th>
+                    <th scope="col" id="minutesAway">Minutes Away</th>
+                </tr>
+            </thead>
+        </table>
+
+        <!-- Add New Train Form -->
+        <div class="row">
+            <div class="col-md-9">
+                <form class="form-control">
+                    <label for="formTrainName">Train Name</label>
+                    <br>
+                    <input type="text" name="formTrainName" id="formTrainName">
+                    <br>
+                    <label for="destination">Destination</label>
+                    <br>
+                    <input type="text" name="formDestination" id="formDestination">
+                    <br>
+                    <label for="firstTrainTime">First Train Time (HH:mm) Military Time</label>
+                    <br>
+                    <input type="text" name="formFirstTrainTime" id="formFirstTrainTime">
+                    <br>
+                    <label for="frequency">Frequency (min)</label>
+                    <br>
+                    <input type="text" name="formFrequency" id="formFrequency">
+                    <br>
+                </form>
+            </div>
+            <div class="col-md-3">
+                <button id="submit" class="btn-primary mt-2">Submit</button>
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <!-- JAVASCRIPT -->
+    <script src="https://www.gstatic.com/firebasejs/4.10.1/firebase.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
+    <script src="assets/javascript/logic.js"></script>
+</body>
+
+</html>
