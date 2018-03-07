@@ -10,8 +10,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-
-
+// Document Ready Beginning
 $(document).ready(function () {
 
     var database = firebase.database()
@@ -40,8 +39,6 @@ $(document).ready(function () {
             frequency: formFrequency,
         })
 
-
-
     }) //END OF SUBMIT BUTTON PRESS
 
     // On Child Added to Database
@@ -52,12 +49,36 @@ $(document).ready(function () {
         var newDestination = snap.val().destination
         var newFirstTrainTime = snap.val().firstTrainTime
         var newFrequency = snap.val().frequency
-        
+
+        // Console log train database all values
+        // console.log("Train Name: " + newTrainName)
+        // console.log("Destination: " + newDestination)
+        // console.log("First Arrival: " + newFirstTrainTime)
+        // console.log("Frequency: " + newFrequency)
+
+        // Train Time logic
+        var currentTime = moment()
+        var firstTimeConverted = moment(newFirstTrainTime, "hh:mm").subtract(1, "years")
+        var timeDiff = moment().diff(moment(firstTimeConverted), "minutes")
+        var timeRemainder = timeDiff % newFrequency
+        var minUntilNext = newFrequency - timeRemainder
+        var nextTrainTime = moment().add(minUntilNext, "minutes").format("hh:mm")
+
+        // Console log time logic
+        // console.log(currentTime.format("hh:mm"))
+        // console.log(firstTimeConverted)
+        // console.log(timeDiff)
+        // console.log(timeRemainder)
+        // console.log(minUntilNext)
+        // console.log(nextTrainTime)
+
         // Append new data into display table
-        $("#infoTable").append("<tr></tr>").append("<td>" + newTrainName + "</td>", "<td>" + newDestination + "</td>", "<td>" + newFrequency + "</td>", "<td>test</td>", "<td>test</td>")
-
-
-
+        $("#infoTable").append("<tr></tr>").append(
+            "<td>" + newTrainName + "</td>",
+            "<td>" + newDestination + "</td>",
+            "<td>" + newFrequency + "</td>",
+            "<td>" + nextTrainTime + "</td>",
+            "<td>" + minUntilNext + "</td>")
 
     }) //END OF ON CHILD ADDED EVENT
 
