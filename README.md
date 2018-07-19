@@ -1,4 +1,4 @@
-# firebase-assignment
+# Train-Tracker
 Train-Tracker is an app which allows for train time and frequency entries, and calculates next arrival times.
 
 Train-Tracker is deployed to github, and can be accessed by visiting https://gavinquirk.github.io/Train-Tracker/
